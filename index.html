@@ -25,8 +25,12 @@
         const canvas = document.getElementById('artCanvas');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
         ctx.lineWidth = 2;
         ctx.lineCap = "round";
@@ -46,8 +50,10 @@
 
             const nextLen = len * 0.7;
 
-            drawBranch(xp, yp, nextLen, teta -0.5, depth -1);
-            drawBranch(xp, yp, nextLen, teta +0.5, depth -1);
+            setTimeout(() => {
+                drawBranch(xp, yp, nextLen, teta -0.5, depth -1);
+                drawBranch(xp, yp, nextLen, teta +0.5, depth -1);
+            }, 50);
         }
 
         drawBranch(canvas.width /2, canvas.height/2, 120, -Math.PI / 2, 10);
