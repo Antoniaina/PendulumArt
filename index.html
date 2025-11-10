@@ -19,8 +19,16 @@
     </style>
 </head>
 <body>
+    <div id="controls">
+        <label for="algoSelect">Choose algorithm:</label>
+        <select id="algoSelect">
+            <option value="flower">Fractal Flower</option>
+            <option value="pendulum">Pendulum Flower</option>
+        </select>
+    </div>
+
     <canvas id="artCanvas"></canvas>
 
-    <script src="./js/main.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 </html>
